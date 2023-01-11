@@ -608,7 +608,9 @@
                     })
                 },uResult).then(() => {
                     loadingObj.show(`缓存成功`);
-                    window.funDownload(JSON.stringify(objs),'o.txt');
+                    let d = new Date();
+                    let fn = `cache_${d.toISOString().replace(/:/g,'_')}.bin`;
+                    window.funDownload(JSON.stringify(objs),fn);
                     window.objs = objs;
                     console.log('over');
                     setTimeout(() => {
